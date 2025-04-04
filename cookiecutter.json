@@ -1,0 +1,24 @@
+{
+    "templates": {
+        "dockerfile": {
+            "path": "./dockerfile",
+            "title": "Dockerfile",
+            "description": "A cookiecutter template for a Dockerfile"
+        },
+        "docker-compose": {
+            "path": "./docker-compose",
+            "title": "docker-compose",
+            "description": "A cookiecutter template for a docker-compose.yaml"
+        },
+        "python-package": {
+            "path": "./python-package",
+            "title": "Python Package",
+            "description": "A Python Package template"
+        },
+        ".vimrc": {
+            "path": "./vimrc",
+            "title": ".vimrc",
+            "description": "A .vimrc template"
+        }
+    }
+}
