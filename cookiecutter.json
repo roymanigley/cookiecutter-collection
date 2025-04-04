@@ -19,6 +19,11 @@
             "path": "./vimrc",
             "title": ".vimrc",
             "description": "A .vimrc template"
+        },
+        "cookiecutter": {
+            "path": "./cookiecutter",
+            "title": "Cookiecutter",
+            "description": "A Cookiecutter template"
         }
     }
 }
