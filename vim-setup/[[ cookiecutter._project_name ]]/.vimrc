@@ -1,7 +1,7 @@
 " PROPERTIES
 set packpath^=[[ cookiecutter.vim_dir ]]
 let mapleader = " "
-
+set encoding=UTF-8
 set nocompatible
 " allow recursive file search from current directory
 set path+=./**
@@ -22,24 +22,18 @@ set shiftwidth=4
 " On pressing tab, insert 4 spaces
 set expandtab
 
-" pluginless nerdtree -  set explore properties
-let g:netrw_winsize=30	    " define winsize
-let g:netrw_banner=0        " disable annoying banner
-let g:netrw_browse_split=4  " open in prior window
-let g:netrw_altv=1          " open splits to the right
-let g:netrw_liststyle=3     " tree view
-let g:netrw_list_hide=netrw_gitignore#Hide()
-let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
-
-
-" pluginless WhichKey
+" plugin config WhichKey
 let g:which_key_map = {}
 let g:which_key_timeout = 10
+" plugin config vimwiki
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': 'md'}]
 " KEY BINDINGS
 " save on CTRL s (for normal and insert mode)
 nnoremap <C-s> :w<CR>
 inoremap <C-s> <ESC>:w<CR>a
-
+" theme for gruvbox
+set background=dark
 " close all on CTRL q (for normal and insert mode)
 nnoremap <C-q> :qa<CR>
 inoremap <C-q> <ESC>:qa<CR>
@@ -47,9 +41,8 @@ inoremap <C-q> <ESC>:qa<CR>
 nnoremap <C-d> :q<CR>
 inoremap <C-d> <ESC>:q<CR>
 
-" toggle nerd tree CTRL e (plugin required)
-" nnoremap <C-e> :NERDTreeToggle<CR>
-nnoremap <C-e> :Vexplore<CR>
+" toggle nerd tree CTRL e
+nnoremap <C-e> :NERDTreeToggle<CR>
 
 " show terminal CTRL t
 nnoremap <C-t> :terminal<CR>
@@ -60,4 +53,5 @@ nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 " SNIPPETS
 " nnoremap ,html :-1read /home/royman/.vim/.skeleton.html<CR>3jwf>a
 
+autocmd vimenter * ++nested colorscheme gruvbox
 
