@@ -15,10 +15,10 @@
             "title": "Python Package",
             "description": "A Python Package template"
         },
-        ".vimrc": {
-            "path": "./vimrc",
-            "title": ".vimrc",
-            "description": "A .vimrc template"
+        "vim-setup": {
+            "path": "./vim-setup",
+            "title": "VIM setup",
+            "description": "A VIM setup template"
         },
         "pentest": {
             "path": "./pentest",

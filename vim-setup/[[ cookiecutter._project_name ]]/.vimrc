@@ -1,4 +1,7 @@
 " PROPERTIES
+set packpath^=[[ cookiecutter.vim_dir ]]
+let mapleader = " "
+
 set nocompatible
 " allow recursive file search from current directory
 set path+=./**
@@ -28,6 +31,10 @@ let g:netrw_liststyle=3     " tree view
 let g:netrw_list_hide=netrw_gitignore#Hide()
 let g:netrw_list_hide.=',\(^\|\s\s\)\zs\.\S\+'
 
+
+" pluginless WhichKey
+let g:which_key_map = {}
+let g:which_key_timeout = 10
 " KEY BINDINGS
 " save on CTRL s (for normal and insert mode)
 nnoremap <C-s> :w<CR>
@@ -46,6 +53,9 @@ nnoremap <C-e> :Vexplore<CR>
 
 " show terminal CTRL t
 nnoremap <C-t> :terminal<CR>
+
+" trigger WhichKey
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
 
 " SNIPPETS
 " nnoremap ,html :-1read /home/royman/.vim/.skeleton.html<CR>3jwf>a

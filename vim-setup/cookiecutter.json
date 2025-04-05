@@ -13,4 +13,5 @@
         "comment_end_string": "@]"
     },
     "_project_name": "vimrc",
+    "vim_dir": "~/.vim"
 }
