@@ -20,6 +20,11 @@
             "title": ".vimrc",
             "description": "A .vimrc template"
         },
+        "pentest": {
+            "path": "./pentest",
+            "title": "Penetration Testing",
+            "description": "A Penetration Testing tool suite"
+        },
         "cookiecutter": {
             "path": "./cookiecutter",
             "title": "Cookiecutter",
