@@ -25,6 +25,11 @@
             "title": "Penetration Testing",
             "description": "A Penetration Testing tool suite"
         },
+        "jinja": {
+            "path": "./jinja",
+            "title": "Jinja",
+            "description": "A Jinja template"
+        },
         "html": {
             "path": "./html",
             "title": "HTML",
