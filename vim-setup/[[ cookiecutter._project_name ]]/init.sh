@@ -15,4 +15,4 @@ git clone https://github.com/itchyny/lightline.vim.git [[ cookiecutter.vim_dir ]
 
 cp .vimrc [[ cookiecutter.vim_dir ]]
 
-/bin/vim -u [[ cookiecutter.vim_dir ]]/.vimrc -c 'LeaderfInstallCExtension' -c 'qa'
+/bin/vim -u [[ cookiecutter.vim_dir ]]/.vimrc -c 'LeaderfInstallCExtension' -c 'qall'

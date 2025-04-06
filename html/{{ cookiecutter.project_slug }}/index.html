@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="css/materialize.min.css" media="screen,projection" />
+	<link type="text/css" rel="stylesheet" href="css/styles.css" media="screen,projection" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+	<meta charset="utf-8" />
+	<title>[[ cookiecutter.project_name ]]</title>
+</head>
+
+<body>
+	<nav>
+		<div class="nav-wrapper">
+			<a href="#" class="brand-logo center">[[ cookiecutter.project_name ]]</a>
+			<ul id="nav-mobile" class="left hide-on-med-and-down">
+				<li><a href="#!">Sass</a></li>
+				<li><a href="#!">Components</a></li>
+				<li><a href="#!">JavaScript</a></li>
+			</ul>
+		</div>
+	</nav>
+
+	<main class="container">
+		<div class="row center-align">
+			<div class="col s6">
+				<div class="card">
+					<div class="card-content">
+						<p>I am a very simple card. I am good at containing small bits of
+							information. I am
+							convenient because I require little markup to use effectively.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+	</main>
+
+	<footer class="page-footer">
+		<div class="container">
+			<div class="row">
+				<div class="col l6 s12">
+					<h5 class="white-text">[[ cookiecutter.project_name ]]</h5>
+					<p class="grey-text text-lighten-4">You can use rows and columns here to
+						organize your footer content.</p>
+				</div>
+				<div class="col l4 offset-l2 s12">
+					<h5 class="white-text">Links</h5>
+					<ul>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 3</a></li>
+						<li><a class="grey-text text-lighten-3" href="#!">Link 4</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<div class="container">
+				© <span id="copyright-year"></span> Copyright Text
+				<a class="grey-text text-lighten-4 right" href="#!">More Links</a>
+			</div>
+		</div>
+	</footer>
+	<script type="text/javascript" src="js/materialize.min.js"></script>
+	<script>
+		const currentYear = new Date().getFullYear();
+		document.getElementById("copyright-year").textContent = currentYear;
+	</script>
+</body>
+
+</html>

@@ -25,6 +25,11 @@
             "title": "Penetration Testing",
             "description": "A Penetration Testing tool suite"
         },
+        "html": {
+            "path": "./html",
+            "title": "HTML",
+            "description": "A HTML template using matrializecss"
+        },
         "cookiecutter": {
             "path": "./cookiecutter",
             "title": "Cookiecutter",
