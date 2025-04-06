@@ -30,6 +30,11 @@
             "title": "Jinja",
             "description": "A Jinja template"
         },
+        "drf": {
+            "path": "./drf",
+            "title": "Django Rest Framework",
+            "description": "A Django Rest Framework template with OAuth2"
+        },
         "html": {
             "path": "./html",
             "title": "HTML",

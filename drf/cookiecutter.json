@@ -1,0 +1,18 @@
+{
+    "_extensions": [
+        "custom_extensions.snake_case",
+        "custom_extensions.kebab_case",
+        "custom_extensions.as_model_field"
+    ],
+    "_jinja2_env_vars": {
+        "block_start_string": "[%",
+        "block_end_string": "%]",
+        "variable_start_string": "[[",
+        "variable_end_string": "]]",
+        "comment_start_string": "[@",
+        "comment_end_string": "@]"
+    },
+    "project_name": "Awesome Cookiecutter",
+    "project_slug": "[[ cookiecutter.project_name.lower().replace(' ', '_') ]]",
+    "models": "Alpha Bravo"
+}
