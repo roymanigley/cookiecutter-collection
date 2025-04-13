@@ -35,6 +35,11 @@
             "title": "Django Rest Framework",
             "description": "A Django Rest Framework template with OAuth2"
         },
+        "django-template": {
+            "path": "./django-template",
+            "title": "Django Template",
+            "description": "A Django Template using Daisy UI template with Session Authentication"
+        },
         "html": {
             "path": "./html",
             "title": "HTML",
