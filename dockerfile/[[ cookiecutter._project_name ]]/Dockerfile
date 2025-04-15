@@ -20,8 +20,8 @@ RUN chown app-user:app-group ${DJANGO_DB_DIR} -R
 
 RUN chmod u+s /usr/sbin/crond
 
-RUN chmod +x /usr/local/bin/root-entrypoint.sh
-ENTRYPOINT ["/usr/local/bin/root-entrypoint.sh"]
+RUN chmod +x /opt/app/root-entry-point.sh
+ENTRYPOINT ["/opt/app/root-entry-point.sh"]
 
-RUN chmod +x /usr/local/bin/user-entrypoint.sh
-CMD ["./user-entrypoint.sh"]
+RUN chmod +x /opt/app/user-entry-point.sh
+CMD ["/opt/app/user-entry-point.sh"]
