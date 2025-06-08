@@ -35,6 +35,11 @@
             "title": "Django Rest Framework",
             "description": "A Django Rest Framework template with OAuth2"
         },
+        "django-ninja": {
+            "path": "./django-ninja",
+            "title": "Django Ninja",
+            "description": "A Django Ninja template with OAuth2"
+        },
         "django-template": {
             "path": "./django-template",
             "title": "Django Template",

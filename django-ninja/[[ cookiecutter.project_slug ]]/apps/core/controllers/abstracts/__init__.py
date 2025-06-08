@@ -1,0 +1,1 @@
+from apps.core.controllers.abstracts.scopable_controller_mixin import ScopableControllerMixin
