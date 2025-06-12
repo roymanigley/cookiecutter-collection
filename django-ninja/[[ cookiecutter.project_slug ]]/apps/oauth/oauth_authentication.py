@@ -7,7 +7,11 @@ from ninja_extra.exceptions import PermissionDenied
 class OAuth2(HttpBearer):
     def authenticate(self, request: HttpRequest, token: str):
         try:
-            access_token = AccessToken.objects.select_related('user').get(
+            access_token = AccessToken.objects.select_related(
+                'user'
+            ).select_related(
+                'application__user'
+            ).get(
                 token=token
             )
             if access_token.is_expired():
@@ -32,7 +36,11 @@ class OAuth2(HttpBearer):
 class OAuth2Async(HttpBearer):
     async def authenticate(self, request: HttpRequest, token: str):
         try:
-            access_token = await AccessToken.objects.select_related('user').aget(
+            access_token = await AccessToken.objects.select_related(
+                'user'
+            ).select_related(
+                'application__user'
+            ).aget(
                 token=token
             )
             if access_token.is_expired():

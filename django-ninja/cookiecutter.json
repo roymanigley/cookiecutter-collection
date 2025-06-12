@@ -14,5 +14,6 @@
     },
     "project_name": "Awesome Django Ninja App",
     "project_slug": "[[ cookiecutter.project_name.lower().replace(' ', '_') ]]",
-    "models": "Dummy DummyType"
+    "models": "Dummy DummyType",
+    "async": true
 }

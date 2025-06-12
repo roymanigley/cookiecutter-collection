@@ -1,13 +1,13 @@
 from ninja_extra import NinjaExtraAPI
 from apps.core import controllers
 from ninja import Redoc
-from apps.oauth.oauth_authentication import OAuth2
+from apps.oauth.oauth_authentication import [% if cookiecutter.async %]OAuth2Async[% else %]OAuth2[% endif %]
 from apps.core.exceptions import exception_handler
 
 
 ninja_api = NinjaExtraAPI(
     docs=Redoc(),
-    auth=OAuth2(),
+    auth=[% if cookiecutter.async %]OAuth2Async[% else %]OAuth2[% endif %](),
     openapi_extra={
         'info': {
             'description': '''
@@ -37,7 +37,7 @@ ninja_api = NinjaExtraAPI(
 
 ninja_api.register_controllers(
     [% for model in cookiecutter.models.split(' ') -%]
-    controllers.[[ model ]]Controller,
+    controllers.[[model]]Controller,
 [% endfor %])
 
 ninja_api.add_exception_handler(Exception, exception_handler)

@@ -1,7 +1,8 @@
 from ninja_extra.exceptions import PermissionDenied
 
+
 class ScopableControllerMixin:
-    
+
     authorized_scopes = {
         'GET': [],
         'POST': [],
@@ -21,7 +22,7 @@ class ScopableControllerMixin:
             for scope in required_scopes:
                 if token and scope in token.scope.split(' '):
                     valid_scope = True
-                    continue
+                    break
             if not valid_scope:
                 self.permission_denied
                 raise PermissionDenied(
@@ -32,20 +33,20 @@ class ScopableControllerMixin:
 
     async def async_check_permissions(self):
 
-        required_scopes: list[str] = await self.authorized_scopes.aget(
+        required_scopes: list[str] = self.authorized_scopes.get(
             self.context.request.method
         )
         if required_scopes:
-            token = getattr(self.context.request, "auth", None)
+            token = await self.context.request.auth
             valid_scope = False
             for scope in required_scopes:
                 if token and scope in token.scope.split(' '):
                     valid_scope = True
-                    continue
+                    break
             if not valid_scope:
                 self.permission_denied
                 raise PermissionDenied(
                     402, f"Missing one of the required scopes: {required_scopes}"
                 )
 
-        return super().async_check_permissions()
+        return await super().async_check_permissions()
