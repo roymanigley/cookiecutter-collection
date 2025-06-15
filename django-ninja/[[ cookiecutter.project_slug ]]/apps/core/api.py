@@ -22,7 +22,7 @@ ninja_api = NinjaExtraAPI(
   
 **Available Scopes:**
 - `openid`: Open Id Connect
-[% for model in cookiecutter.models.split(' ') %] 
+[% for model in cookiecutter._models %] 
 `[[ model ]]`  
 - `[[ model | snake_case ]]_read`: Read access for `[[ model ]]`
 - `[[ model | snake_case ]]_create`: Create access for `[[ model ]]`
@@ -36,7 +36,7 @@ ninja_api = NinjaExtraAPI(
 
 
 ninja_api.register_controllers(
-    [% for model in cookiecutter.models.split(' ') -%]
+    [% for model in cookiecutter._models -%]
     controllers.[[model]]Controller,
 [% endfor %])
 

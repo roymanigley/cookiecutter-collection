@@ -12,7 +12,8 @@
         "comment_start_string": "[@",
         "comment_end_string": "@]"
     },
+    "_template_dir": "django-template",
     "project_name": "Awesome Django App",
     "project_slug": "[[ cookiecutter.project_name.lower().replace(' ', '_') ]]",
-    "models": "Dummy DummyType"
+    "_models": {}
 }

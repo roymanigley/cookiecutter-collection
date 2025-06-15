@@ -50,6 +50,7 @@ INSTALLED_APPS = [
     'ninja_extra',
     'apps.oauth',
     'apps.core',
+    'apps.shared',
 ]
 
 MIDDLEWARE = [
@@ -75,7 +76,7 @@ OAUTH2_PROVIDER = {
     'PKCE_REQUIRED': True,
     'SCOPES': {
         'openid': 'Open Id Connect',
-        [%- for model in cookiecutter.models.split(' ') -%] 
+        [%- for model in cookiecutter._models -%] 
         '[[ model | snake_case ]]_read': 'Read access for [[ model ]]',
         '[[ model | snake_case ]]_create': 'Create access for [[ model ]]',
         '[[ model | snake_case ]]_update': 'Update access for [[ model ]]',

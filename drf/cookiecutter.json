@@ -12,7 +12,8 @@
         "comment_start_string": "[@",
         "comment_end_string": "@]"
     },
+    "_template_dir": "drf",
     "project_name": "Awesome Cookiecutter",
     "project_slug": "[[ cookiecutter.project_name.lower().replace(' ', '_') ]]",
-    "models": "Alpha Bravo"
+    "_models": {}
 }

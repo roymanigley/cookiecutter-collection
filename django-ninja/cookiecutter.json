@@ -12,8 +12,9 @@
         "comment_start_string": "[@",
         "comment_end_string": "@]"
     },
+    "_template_dir": "django-ninja",
     "project_name": "Awesome Django Ninja App",
     "project_slug": "[[ cookiecutter.project_name.lower().replace(' ', '_') ]]",
-    "models": "Dummy DummyType",
+    "_models": {},
     "async": true
 }

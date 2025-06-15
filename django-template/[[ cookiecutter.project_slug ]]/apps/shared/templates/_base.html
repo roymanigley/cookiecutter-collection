@@ -31,7 +31,7 @@
 		      <label for="my-drawer" aria-label="close sidebar" class="drawer-overlay"></label>
 		      <ul class="menu bg-base-200 text-base-content min-h-full w-80 p-4">
 		  	<li><a href="/">Homepage</a></li>
-			[% set _models = cookiecutter.models.split(' ') %]
+			[% set _models = cookiecutter._models %]
 			[% for model in _models %]
 			{% with 'core.view_'|add:'[[ model|lower ]]' as permission %}
                         {% if user|has_perm:permission %}

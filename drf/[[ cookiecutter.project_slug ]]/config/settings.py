@@ -33,6 +33,7 @@ INSTALLED_APPS = [
     'rest_framework',
     'apps.oauth',
     'apps.core',
+    'apps.shared',
 ]
 
 AUTH_USER_MODEL = "oauth.Tenant"

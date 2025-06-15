@@ -1,4 +1,4 @@
-[%- for model in cookiecutter.models.split(' ') -%]
+[%- for model in cookiecutter._models -%]
 from django.contrib.auth.mixins import PermissionRequiredMixin
 from apps.core.models import [[ model ]]
 from apps.core.forms import [[ model ]]Form

@@ -1,4 +1,4 @@
-[%- for model in cookiecutter.models.split(' ') -%]
+[%- for model in cookiecutter._models -%]
 from rest_framework import serializers
 from apps.core import models
 

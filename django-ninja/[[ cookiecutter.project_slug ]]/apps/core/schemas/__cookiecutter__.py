@@ -1,4 +1,4 @@
-[%- for model in cookiecutter.models.split(' ') -%]
+[%- for model in cookiecutter._models -%]
 from ninja_schema import ModelSchema
 from apps.core.models import [[ model ]]
 

@@ -1,4 +1,4 @@
-[%- for model in cookiecutter.models.split(' ') -%]
+[%- for model in cookiecutter._models -%]
 from apps.core.models import [[ model ]]
 from django import forms
 from django.utils.translation import gettext_lazy as _

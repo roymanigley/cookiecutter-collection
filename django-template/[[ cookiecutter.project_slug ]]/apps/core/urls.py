@@ -4,7 +4,7 @@ from apps.core import views
 
 urlpatterns = [
     path('', TemplateView.as_view(template_name='index.html')),
-    [% for model in cookiecutter.models.split(' ') -%]
+    [% for model in cookiecutter._models -%]
     path('[[ model | kebab_case ]]/', views.[[ model ]]ListView.as_view()),
     path('[[ model | kebab_case ]]/new/', views.[[ model ]]CreateView.as_view()),
     path('[[ model | kebab_case ]]/<int:pk>/', views.[[ model ]]UpdateView.as_view()),
