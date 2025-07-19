@@ -1,0 +1,17 @@
+{% extends 'layout/base.html' %}
+{% load i18n %}
+{% block content %}
+<div hx-on:htmx:after-request="if(event.detail.successful) { hideModalAndReload('#form-dialog', 500); }">
+    <form hx-post="{{ request.path }}"
+          hx-swap="outerHTML"
+          hx-target="this">
+        {% csrf_token %}
+        <div class="p-4">
+            {% translate 'Do you realy want to delete this record ?' %}
+        </div>
+        <div class="flex justify-center">
+            <button type="submit" class="nes-btn is-error">🗑</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

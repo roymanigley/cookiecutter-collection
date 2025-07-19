@@ -1,0 +1,8 @@
+{% for group, options, index in widget.optgroups %}
+    {% for option in options %}
+    <label{% if option.attrs.id %} for="{{ option.attrs.id }}"{% endif %}>
+        {% include "django/forms/widgets/input.html" with widget=option %}
+        <span>{{ option.label }}</span>
+    </label>
+    {% endfor %}
+{% endfor %}

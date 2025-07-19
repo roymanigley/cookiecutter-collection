@@ -1,0 +1,37 @@
+{% load static %}
+{% load i18n %}
+{% if not is_htmx %}
+<!DOCTYPE html>
+<html>
+<head>
+    <link href="{% static 'css/nes.min.css' %}" rel="stylesheet"/>
+    <link href="{% static 'css/nes-font.css' %}" rel="stylesheet">
+    <link type="text/css" rel="stylesheet" href="{% static 'css/styles.css' %}" media="screen,projection"/>
+    <script type="text/javascript" src="{% static 'js/tailwindcss.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/components/eag-jellyfish.js' %}"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+</head>
+
+<body>
+<div class="nes-container with-title m-4">
+    <span class="title w-full">
+        <span href="#" class="nes-badge !w-full">
+            <a href="/"><span class="is-dark">{% translate '[[ cookiecutter.project_name ]]' %}</span></a>
+        </span>
+    </span>
+    {% include 'layout/menu.html' %}
+    <eag-jellyfish style="position: fixed;bottom: 100px;right: 80px; z-index: 999" />
+
+</div>
+<div class="m-4">
+    {% endif %}
+    <div id="page-content">
+    {% block content %}{% endblock %}
+    {% if not is_htmx %}
+    </div>
+</div>
+<script type="text/javascript" src="{% static 'js/htmx.min.js' %}"></script>
+<script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+</body>
+</html>
+{% endif %}

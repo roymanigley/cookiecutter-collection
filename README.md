@@ -19,10 +19,11 @@ Select a template
     6 - Jinja (A Jinja template)
     7 - Django Rest Framework (A Django Rest Framework template with OAuth2)
     8 - Django Ninja (A Django Ninja template with OAuth2)
-    9 - Django Template (A Django Template using Daisy UI template with Session Authentication)
-    10 - HTML (A HTML template using matrializecss)
-    11 - Cookiecutter (A Cookiecutter template)
-    Choose from [1/2/3/4/5/6/7/8/9/10/11] (1):
+    9 - Django HTMX (A Django HTMX template)
+    10 - Django Template (A Django Template using Daisy UI template with Session Authentication)
+    11 - HTML (A HTML template using matrializecss)
+    12 - Cookiecutter (A Cookiecutter template)
+    Choose from [1/2/3/4/5/6/7/8/9/10/11/12] (1):
 ```
 
 ### After generation

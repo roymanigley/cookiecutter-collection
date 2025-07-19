@@ -1,0 +1,9 @@
+{% extends 'layout/base.html' %}
+{% load custom_filters %}
+{% load i18n %}
+{% block content %}
+{% for field in fields %}
+    <label>{% translate field %}</label>
+    <p>{{ object|get_attr:field }}</p>
+{% endfor %}
+{% endblock %}

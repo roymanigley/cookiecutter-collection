@@ -1,0 +1,136 @@
+{% extends 'layout/base.html' %}
+{% load custom_filters %}
+{% load i18n %}
+{% block content %}
+<div
+    class="crud-table-wrapper"
+    hx-get="{{ request.path }}"
+    hx-trigger="reload from:body"
+    hx-target="this">
+    <dialog id="form-dialog" class="nes-dialog m-auto">
+        <div class="flex justify-end">
+            <button class="nes-btn is-normal" onclick="hideModal('#form-dialog')">X</button>
+        </div>
+        <div id="form-content"></div>
+    </dialog>
+
+    <form
+            hx-get="{{ request.path }}"
+            hx-target="closest .crud-table-wrapper"
+            hx-swap="outerHTML">
+        <div class="flex flex-wrap space-x-2 pb-4">
+            <input type="text" id="search" name="search" placeholder="{% translate 'Search' %}" value="{{ request.GET|get_attr:'search' }}" class="nes-input !w-0 flex-grow">
+            <button class="nes-btn is-primary" type="submit">🔍</button>
+        </div>
+    </form>
+
+    <table class="nes-table is-bordered w-full">
+        <thead>
+        <tr>
+            <th style="width: 9em;" class="!text-left">
+                <button
+                        hx-target="#form-content"
+                        hx-get="{{ request.path }}new/"
+                        type="button"
+                        class="nes-btn is-primary"
+                        onclick="showModal('#form-dialog')"
+                        hx-trigger="click">+
+                </button>
+
+            </th>
+            {% for field in fields %}
+                <th>
+                    <div class="flex justify-between items-baseline">
+                        <div>{% translate field %}</div>
+                        <div class="w-0 pr-4">
+                            <form hx-get="{{ request.path }}" hx-target="closest .crud-table-wrapper" hx-swap="outerHTML"><input
+                                    class="hidden"
+                                    name="order_by"
+                                    value="{{ field }}">
+                                <button type="submit">🡩</button>
+                            </form>
+                            <form hx-get="{{ request.path }}" hx-target="closest .crud-table-wrapper" hx-swap="outerHTML"><input
+                                    class="hidden"
+                                    name="order_by"
+                                    value="-{{ field }}">
+                                <button type="submit">🡫</button>
+                            </form>
+                        </div>
+                    </div>
+                </th>
+            {% endfor %}
+        </tr>
+        </thead>
+        <tbody>
+        {% for object in object_list %}
+            <tr>
+                <td>
+                    <button
+                            hx-target="#form-content"
+                            hx-get="{{ request.path }}{{ object.id }}/edit/"
+                            type="button"
+                            class="nes-btn is-primary"
+                            onclick="document.querySelector('#form-dialog').showModal()"
+                            hx-trigger="click">✎
+                    </button>
+                    <button
+                            hx-target="#form-content"
+                            hx-get="{{ request.path }}{{ object.id }}/delete/"
+                            type="button"
+                            onclick="document.querySelector('#form-dialog').showModal()"
+                            hx-trigger="click"
+                            class="nes-btn is-error">🗑
+                    </button>
+                </td>
+                {% for field in fields %}
+                    <td>{{ object|get_attr:field }}</td>
+                {% endfor %}
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <div class="flex flex-row justify-center space-x-4 pt-4">
+        {% if page_obj.has_previous %}
+            <form
+                    hx-get="{{ request.path }}?page=
+                            {{ page_obj.previous_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}"
+                    hx-target="closest .crud-table-wrapper"
+                    hx-swap="outerHTML">
+                <button class="nes-btn is-primary" type="submit"><</button>
+            </form>
+        {% else %}
+            <div>
+                <a class="nes-btn is-disabled"><</a>
+            </div>
+        {% endif %}
+        {% for page_index in 0|range:page_obj.paginator.num_pages %}
+            {% with page_index|add:1 as page_number %}
+                <form
+                        hx-get="{{ request.path }}?page=
+                                {{ page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}"
+                        hx-target="closest .crud-table-wrapper"
+                        hx-swap="outerHTML">
+                    <button class="nes-btn {% if page_obj.number == page_number %}is-disabled{% endif %}"
+                            type="{% if page_obj.number == page_number %}button{% else %}submit{% endif %}">{{ page_number }}</button>
+                </form>
+            {% endwith %}
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <form
+                    hx-get="{{ request.path }}?page=
+                            {{ page_obj.next_page_number }}{% if request.GET.search %}&search={{ request.GET.search }}{% endif %}"
+                    hx-target="closest .crud-table-wrapper"
+                    hx-swap="outerHTML">
+                <button class="nes-btn is-primary" type="submit">></button>
+            </form>
+        {% else %}
+            <div>
+                <a class="nes-btn is-disabled">></a>
+            </div>
+        {% endif %}
+    </div>
+    <div class="flex flex-row justify-center pt-2">
+        <span>{{ page_obj.start_index }} – {{ page_obj.end_index }} {% translate 'of' %} {{ page_obj.paginator.count }}</span>
+    </div>
+</div>
+{% endblock %}

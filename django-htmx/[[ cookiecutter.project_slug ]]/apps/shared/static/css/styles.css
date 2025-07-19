@@ -1,0 +1,11 @@
+* {
+	border-image-repeat: repeat !important;
+}
+
+.w-0p {
+	width: 0%;
+}
+
+.errorlist {
+	color: red;
+}

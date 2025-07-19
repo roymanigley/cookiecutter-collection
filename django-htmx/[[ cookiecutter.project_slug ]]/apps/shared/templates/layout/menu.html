@@ -1,0 +1,35 @@
+{% load custom_filters %}
+{% load i18n %}
+<div class="flex items-baseline justify-between">
+    {% if user.is_authenticated %}
+        <details>
+            <summary>
+        <span href="#" class="nes-badge">
+            <span class="is-primary">{% translate 'Menu' %}</span>
+        </span>
+            </summary>
+            <div class="pl-8">
+                <div class="lists">
+                    <ul class="nes-list is-circle">
+                        [%- for model in cookiecutter._models -%]
+                        {% if user|has_perm:'core.view_country' %}
+                            <li><a
+                                    hx-get="/[[ model|kebab_case ]]/"
+                                    hx-push-url="true"
+                                    hx-target="#page-content"
+                                    hx-swap="innerHTML"
+                                    class="!underline">{% translate '[[ model ]]' %}</a></li>
+                        {% endif %}
+                        [% endfor -%]
+                    </ul>
+                </div>
+            </div>
+        </details>
+        <form action="/auth/logout/" method="POST">
+            {% csrf_token %}
+            <button class="nes-btn is-error">{% translate 'Logout' %}: {{ user.username }}</button>
+        </form>
+    {% else %}
+        <a href="/auth/login/" class="nes-btn is-primary">{% translate 'Login' %}</a>
+    {% endif %}
+</div>

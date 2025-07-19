@@ -1,0 +1,14 @@
+{% extends 'layout/base.html' %}
+{% block content %}
+<div hx-on:htmx:after-request="if(event.detail.successful) { hideModalAndReload('#form-dialog', 500); }">
+<form hx-post="{{ request.path }}"
+      hx-swap="outerHTML"
+      hx-target="this">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <div class="flex justify-center">
+        <button class="nes-btn is-primary" type="submit">🖫</button>
+    </div>
+</form>
+</div>
+{% endblock %}

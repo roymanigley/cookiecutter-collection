@@ -40,6 +40,11 @@
             "title": "Django Ninja",
             "description": "A Django Ninja template with OAuth2"
         },
+        "django-htmx": {
+            "path": "./django-htmx",
+            "title": "Django HTMX",
+            "description": "A Django HTMX template"
+        },
         "django-template": {
             "path": "./django-template",
             "title": "Django Template",
