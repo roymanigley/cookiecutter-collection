@@ -7,7 +7,7 @@ from typing import List, Any
 
 import click
 from django.core.management.base import BaseCommand
-
+from django.conf import settings
 
 class ModelActions(enum.Enum):
     ADD_MODEL = 'Add a model'

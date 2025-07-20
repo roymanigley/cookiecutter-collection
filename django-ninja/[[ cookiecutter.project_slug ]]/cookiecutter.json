@@ -1,0 +1,6 @@
+{
+  "project_name": "[[ cookiecutter.project_name ]]",
+  "project_slug": "[[ cookiecutter.project_slug ]]",
+  "_models": {},
+  "async": [% if cookiecutter.async %]true[% else %]false[% endif %]
+}
